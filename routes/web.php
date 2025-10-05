@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\QuestionController;
@@ -36,3 +37,9 @@ Route::get('/Pegawai', [PegawaiController::class, 'index']);
 
 Route::post('question/store', [QuestionController::class, 'store'])
 ->name('question.store');
+
+Route::get('/auth', [AuthController::class, 'index']);
+Route::post('/auth/login', [AuthController::class, 'login']);
+Route::get('/dashboard', function () {
+    return "<h1>Selamat datang di Dashboard!</h1>";
+});
