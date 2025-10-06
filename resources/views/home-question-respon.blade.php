@@ -24,7 +24,7 @@
         }
 
         .thankyou-container h2 {
-            color: #3E97FF;
+            color: #9e6b6b;
             font-weight: bold;
         }
 
@@ -38,13 +38,13 @@
             margin-top: 20px;
             color: #333;
             background-color: #f8f9fa;
-            border-left: 5px solid #3E97FF;
+            border-left: 5px solid #966969;
             padding: 15px 20px;
             border-radius: 6px;
         }
 
         .btn-primary {
-            background-color: #3E97FF;
+            background-color: #d69c9c;
             border: none;
         }
     </style>
