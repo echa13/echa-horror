@@ -7,6 +7,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PelangganController;
 
 
 Route::get('/', function () {
@@ -39,13 +40,7 @@ Route::get('/Pegawai', [PegawaiController::class, 'index']);
 Route::post('question/store', [QuestionController::class, 'store'])
 ->name('question.store');
 
-<<<<<<< HEAD
 Route::get('dashboard', [DashboardController::class, 'index'])
 ->name('dashboard');
-=======
-Route::get('/auth', [AuthController::class, 'index']);
-Route::post('/auth/login', [AuthController::class, 'login']);
-Route::get('/dashboard', function () {
-    return "<h1>Selamat datang di Dashboard!</h1>";
-});
->>>>>>> 569aa00c3b9ad56019e69785d039de58870dedbf
+
+Route::resource('pelanggan', PelangganController::class);
