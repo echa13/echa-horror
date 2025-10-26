@@ -3,34 +3,54 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller
 {
+    /**
+     * Menampilkan Form Login
+     */
     public function index()
     {
-        return view('auth.login_form');
+        return view('guest.login');
     }
 
+    /**
+     * Memproses data login (Otentikasi Database)
+     */
     public function login(Request $request)
     {
-        $username = $request->input('username');
-        $password = $request->input('password');
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'password.required' => 'Password wajib diisi.',
+        ]);
 
-        // Validasi input kosong
-        if (empty($username) || empty($password)) {
-            return back()->with('error', 'Username dan password wajib diisi.');
+        if (Auth::attempt($credentials)) {
+
+            $request->session()->regenerate();
+
+            return redirect()->intended(route('umkm.index'))->with('success', 'Login berhasil!');
         }
 
-        // Validasi password
-        if (strlen($password) < 3 || ! preg_match('/[A-Z]/', $password)) {
-            return back()->with('warning', 'Password harus minimal 3 karakter dan mengandung huruf kapital.');
-        }
+        return back()->withInput()->withErrors([
+            'email' => 'Email atau Password yang Anda masukkan salah.',
+        ]);
+    }
 
-        // Hardcode user
-        if ($username === "echa" && $password === "Echa123") {
-            return redirect('/dashboard')->with('success', 'Login berhasil, selamat datang!');
-        }
+    /**
+     * Logout user.
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-        return back()->with('error', 'Username atau password salah.');
+        return redirect('/login');
     }
 }
