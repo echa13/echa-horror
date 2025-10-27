@@ -6,10 +6,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PelangganController;
 
 
 Route::get('/', function () {
@@ -44,6 +45,8 @@ Route::get('/Pegawai', [PegawaiController::class, 'index']);
 
 Route::post('question/store', [QuestionController::class, 'store'])
 ->name('question.store');
+
+Route::get('/auth', [AuthController::class, 'index']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 Route::get('/dashboard', function () {
     return "<h1>Selamat datang di Dashboard!</h1>";
