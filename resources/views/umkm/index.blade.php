@@ -42,7 +42,7 @@
             box-shadow: 0 4px 12px rgba(200, 203, 208, 0.05);
         }
         .styled-table th {
-            background-color: #2a394f !important; /* Indigo primary color */
+            background-color: #234172 !important; /* Indigo primary color */
             color: rgb(253, 252, 252) !important;
             font-weight: 600;
             text-transform: uppercase;
@@ -64,7 +64,7 @@
         }
         .btn-delete-confirm:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(53, 92, 171, 0.5);
+            box-shadow: 0 4px 10px rgba(135, 143, 160, 0.5);
         }
     </style>
 </head>
@@ -72,49 +72,13 @@
 
 <div class="flex min-h-screen">
 
-    {{--Start sidebar--}}
-    <aside class="sidebar w-64 fixed flex flex-col justify-between text-white h-screen z-20">
-        <div>
-            <!-- Logo & Title -->
-            <div class="flex items-center justify-center py-6 border-b border-indigo-400/30">
-                <i data-lucide="store" class="w-6 h-6 mr-2 text-indigo-100"></i>
-                <h4 class="text-xl font-extrabold tracking-wide">UMKM</h4>
-            </div>
 
-            <!-- Navigation -->
-            <nav class="mt-6 px-4 space-y-2 text-sm font-medium">
-                <a href="{{ route('umkm.index') }}" class="active flex items-center px-4 py-3 rounded-lg">
-                    <i data-lucide="layout-dashboard" class="w-5 h-5 mr-3"></i> Dashboard
-                </a>
-                <a href="{{ route('umkm.create') }}" class="flex items-center px-4 py-3 rounded-lg hover:bg-indigo-700/50">
-                    <i data-lucide="square-user-round" class="w-5 h-5 mr-3"></i> User
-                </a>
-                <a href="#" class="flex items-center px-4 py-3 rounded-lg hover:bg-indigo-700/50">
-                    <i data-lucide="settings" class="w-5 h-5 mr-3"></i> Pengaturan
-                </a>
-            </nav>
-        </div>
-
-        <!-- Logout (bottom aligned) -->
-        <div class="bottom-link px-4">
-            <a href="#" class="flex items-center px-4 py-3 rounded-lg hover:bg-indigo-700/40 transition-all">
-                <i data-lucide="log-out" class="w-5 h-5 mr-3"></i> Logout
-            </a>
-        </div>
-    </aside>
-     {{--End sidebar--}}
 
     <!-- ===== MAIN AREA (Diatur untuk mengimbangi sidebar) ===== -->
     <div class="flex-1 ml-64 flex flex-col">
 
         <!-- HEADER (Diadaptasi dari Halaman Create) -->
-        <header class="bg-white shadow-sm p-5 sticky top-0 z-10 flex justify-between items-center border-b border-gray-200">
-            <h1 class="text-lg font-semibold text-gray-800 tracking-tight">Daftar Data UMKM</h1>
-            <div class="flex items-center text-gray-600">
-                <span class="mr-2 font-medium">Halo !</span>
-                <i data-lucide="circle-user" class="w-6 h-6"></i>
-            </div>
-        </header>
+        @include('layouts.guest.header')
 
         <!-- CONTENT -->
         <main class="p-8 flex-grow">

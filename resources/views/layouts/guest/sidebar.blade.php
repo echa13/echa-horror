@@ -1,4 +1,4 @@
-        <aside class="sidebar w-64 fixed flex flex-col justify-between text-white h-screen z-20">
+        {{-- <aside class="sidebar w-64 fixed flex flex-col justify-between text-white h-screen z-20">
             <div>
                 <!-- Logo & Title -->
                 <div class="flex items-center justify-center py-6 border-b border-indigo-400/30">
@@ -27,4 +27,4 @@
                     <i data-lucide="log-out" class="w-5 h-5 mr-3"></i> Logout
                 </a>
             </div>
-        </aside>
+        </aside> --}}

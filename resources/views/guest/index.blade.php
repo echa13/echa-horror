@@ -7,10 +7,7 @@
             <div class="w-full max-w-full px-3 sm:flex-none">
 
                 <!-- Header Halaman -->
-                <div class="mb-6">
-                    <h1 class="text-2xl font-bold text-gray-800 dark:text-black-500">Daftar User</h1>
-                    <p class="text-sm text-gray-500 dark:text-gray-00">Kelola semua akun pengguna di sini.</p>
-                </div>
+                @include('layouts.guest.header')
 
                 <!-- Bagian Notifikasi -->
                 @if (session('success'))
